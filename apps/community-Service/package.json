@@ -1,0 +1,33 @@
+{
+  "name": "@lazypeps/communtiy-Service",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "serve": {
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@lazypeps/communtiy-Service:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@lazypeps/communtiy-Service:build:development"
+          },
+          "production": {
+            "buildTarget": "@lazypeps/communtiy-Service:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      }
+    }
+  }
+}

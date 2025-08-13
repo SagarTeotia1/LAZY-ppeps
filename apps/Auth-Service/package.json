@@ -1,0 +1,38 @@
+{
+  "name": "@lazypeps/Auth-Service",
+  "version": "0.0.1",
+  "private": true,
+
+  "scripts": {
+    "dev" : "node src/main.ts"
+  },
+  "nx": {
+    "name": "Auth-Service",
+    "projectType": "application",
+    "sourceRoot": "Auth-Service/src",
+    "targets": {
+      "serve": {
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": ["build"],
+        "options": {
+          "buildTarget": "Auth-Service:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "Auth-Service:build:development"
+          },
+          "production": {
+            "buildTarget": "Auth-Service:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      }
+    }
+  }
+}
